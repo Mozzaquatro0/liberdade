@@ -174,52 +174,43 @@
     <div id="container">
         <div id="contadorCima">
             <div class="uni" id="anos">
-                <h1 id="anosValue">01</h1>
+                <h1 id="anosValue"></h1>
                 <h3 id="anosLetra">ANO</h3>
             </div>
             <div class="uni" id="meses">
-                <h1 id="mesesValue">01</h1>
+                <h1 id="mesesValue"></h1>
                 <h3 id="mesesLetra">MESES</h3>
             </div>
             <div class="uni" id="dias">
-                <h1 id="diasValue">01</h1>
+                <h1 id="diasValue"></h1>
                 <h3 id="diasLetra">DIAS</h3>
             </div>
         </div>
 
         <div id="contadorBaixo">
             <div class="uni" id="horas">
-                <h1 id="horasValue">01</h1>
+                <h1 id="horasValue"></h1>
                 <h3 id="horasLetra">HORAS</h3>
             </div>
             <div class="uni" id="minutos">
-                <h1 id="minutosValue">01</h1>
+                <h1 id="minutosValue"></h1>
                 <h3 id="minutosLetra">MIN</h3>
             </div>
             <div class="uni" id="segundos">
-                <h1 id="segundosValue">01</h1>
+                <h1 id="segundosValue"></h1>
                 <h3 id="segundosLetra">SEG</h3>
             </div>
         </div>
     </div>
 
     <script>
-        /*document.addEventListener("DOMContentLoaded", function() {
-            function shuffle(array) {
-                for (var i = array.length - 1; i > 0; i--) {
-                    var j = Math.floor(Math.random() * (i + 1));
-                    var temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
-                }
-                return array;
-            }*/
-
             function updateCounter() {
+               
                 var hoje = new Date();
                 var embora = new Date("March 1, 2027 10:30:00");
                 var diffInMilliseconds = embora - hoje;
 
+                
                 if (diffInMilliseconds <= 0) {
                     document.getElementById("anosValue").innerText = "00";
                     document.getElementById("mesesValue").innerText = "00";
@@ -250,39 +241,11 @@
                 document.getElementById("horasValue").innerText = hours.toString().padStart(2, '0');
                 document.getElementById("minutosValue").innerText = minutes.toString().padStart(2, '0');
                 document.getElementById("segundosValue").innerText = seconds.toString().padStart(2, '0');
+                if (years >= 2 ){
+                    document.getElementById("anosLetra").innerText= 'ANOS'
+                }
             }
             setInterval(updateCounter, 1000);
-            //function checkLogin(event) {
-              //  event.preventDefault();
-
-//                var username = document.getElementById("username").value;
-  //              var password = document.getElementById("password").value;
-
-    //            if (username === "mozza" && password === "mozza4") {
-      //              document.getElementById("loginContainer").style.display = "none";
-        //            document.getElementById("optionsContainer").style.display = "block";
-          //          alert("Seja bem vindo Mozzaquatro.");
-            //    }
-            //}
-
-            /*function checkOption(event) {
-                event.preventDefault();
-
-                var optionSelected = document.querySelector('input[name="option"]:checked');
-
-                if (optionSelected && optionSelected.value === "Mello") {
-                    document.getElementById("optionsContainer").style.display = "flex";
-                    document.getElementById("container").style.display = "flex";
-                    updateCounter();
-                    setInterval(updateCounter, 1000);
-                } else {
-                    alert("Escolha incorreta. Tente novamente.");
-                }
-            }*/
-
-           /* document.getElementById("loginForm").addEventListener("submit", checkLogin);
-            document.getElementById("optionsForm").addEventListener("submit", checkOption);
-        });*/
     </script>
 </body>
 </html>
